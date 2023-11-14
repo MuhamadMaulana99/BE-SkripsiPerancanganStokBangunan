@@ -6,9 +6,13 @@ const userRoute = require('./route/user.js')
 
 const app = express()
 const port = 3000;
+app.use(cors({
+  origin: '*'
+}));
 
 app.use(express.json());
-app.use(express.urlencoded());
+// app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }))
 
 // db.sequelize.sync({ force: true }).then(() => console.log('database ready!'))
 db.sequelize.sync().then(() => console.log('database ready!'))
