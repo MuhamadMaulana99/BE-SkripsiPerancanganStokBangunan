@@ -13,9 +13,11 @@ const dataBarangsModel = require('./bangunanModel/dataBarangModels.js')(sequeliz
 const barangMasukModel = require('./bangunanModel/barangMasukModels.js')(sequelize, Sequelize.DataTypes);
 const barangKeluarModel = require('./bangunanModel/barangKeluarModels.js')(sequelize, Sequelize.DataTypes);
 const userRolesModel = require('./bangunanModel/userRolesModels.js')(sequelize, Sequelize.DataTypes);
+const masterBarang = require('./masterModel/masterBarangModels.js')(sequelize, Sequelize.DataTypes);
+const loginModel = require('./loginModel/loginModels.js')(sequelize, Sequelize.DataTypes);
 const db = {
   sequelize,
-  models: {suplayer: suplayerModel, dataBarangsModel: dataBarangsModel, barangMasuk: barangMasukModel, barangKeluar: barangKeluarModel, userRoles: userRolesModel },
+  models: {suplayer: suplayerModel, dataBarangsModel: dataBarangsModel, barangMasuk: barangMasukModel, barangKeluar: barangKeluarModel, userRoles: userRolesModel, masterBarang: masterBarang, loginModel:loginModel },
 
 }
 try {

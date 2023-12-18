@@ -2,19 +2,15 @@
 // const sequelize = require('./index.js')
 
 module.exports = (sequelize, DataTypes)=>{
-    const user = sequelize.define('tb_users',{
-        name: {
+    const masterBarang = sequelize.define('tb_mst_Barang',{
+        kodeBarang: {
             type: DataTypes.STRING,
-            default: 'MAULANA',
+            default: null,
         },
-        alamat: {
-            type: DataTypes.STRING,
-            default: 'Cisauk',
-        },
-        noTlp: {
+        namaBarang: {
             type: DataTypes.STRING,
             default: null,
         },
     })
-    return user;
+    return masterBarang;
 }

@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: true }))
 db.sequelize.sync().then(() => console.log('database ready!'))
 
 app.use(userRoute);
+app.use('*',(req, res)=> {res.status(404).json({ message: 'Not Found Error!!'})})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

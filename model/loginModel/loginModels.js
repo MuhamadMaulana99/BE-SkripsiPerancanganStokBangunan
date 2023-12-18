@@ -1,17 +1,20 @@
+// const { DataTypes } = require('sequelize')
+// const sequelize = require('./index.js')
+
 module.exports = (sequelize, DataTypes)=>{
-    const kelas = sequelize.define('tb_kelas',{
-        name: {
+    const login = sequelize.define('tb_login',{
+        username: {
             type: DataTypes.STRING,
             default: null,
         },
-        asalSekolah: {
+        password: {
             type: DataTypes.STRING,
             default: null,
         },
-        alamat: {
+        userRoles: {
             type: DataTypes.STRING,
             default: null,
         },
     })
-    return kelas;
+    return login;
 }

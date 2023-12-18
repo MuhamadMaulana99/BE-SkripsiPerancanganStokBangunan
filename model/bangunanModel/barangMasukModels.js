@@ -22,6 +22,12 @@ module.exports = (sequelize, DataTypes)=>{
         supllayer: {
             type: DataTypes.STRING,
         },
+        hargaBarang: {
+            type: DataTypes.STRING,
+        },
+        satuan: {
+            type: DataTypes.STRING,
+        },
     })
     return suplayer;
 }
