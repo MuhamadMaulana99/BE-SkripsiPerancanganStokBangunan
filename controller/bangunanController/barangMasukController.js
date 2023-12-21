@@ -1,21 +1,26 @@
-const {models: {barangMasuk}} = require('../../model/index.js');
+const {models: {barangMasuk, dataBarangsModel}} = require('../../model/index.js');
 
 module.exports = {
     addUser: async (req, res)=>{
-        const {jumlahMasuk, tglMasuk, kodeBarang, namaBarang, supllayer, hargaBarang, satuan } = req.body
-        // console.log(req.body, 'req.body')
-        // if(!jumlahMasuk || !tglMasuk || !kodeBarang){
-        //     return res.send(`jumlahMasuk harus ada`);
-        // }
-        const add = await barangMasuk.create({jumlahMasuk, tglMasuk, kodeBarang,namaBarang, supllayer, hargaBarang, satuan})
+        const {deskripsi,jumlahMasuk, tglMasuk, kodeBarang, namaBarang, supllayer, hargaBarang, satuan } = req.body
+        const findBarangMasuk = await dataBarangsModel.findOne({ where: { kodeBarang} });
+        if(findBarangMasuk){
+          await dataBarangsModel.update({ jumlahMasuk: parseInt(findBarangMasuk.jumlahMasuk ) + parseInt(jumlahMasuk) }, {
+            where: {
+              kodeBarang
+            }
+          });
+        }else{
+          const add = await dataBarangsModel.create({deskripsi, hargaBarang, kodeBarang,namaBarang, jumlahMasuk, satuan});
+        }
+        const add = await barangMasuk.create({deskripsi,jumlahMasuk, tglMasuk, kodeBarang,namaBarang, supllayer, hargaBarang, satuan})
         res.json(add)
     },
     getUser: async (req, res)=>{
         const get = await barangMasuk.findAll({
-            attributes: ['id','jumlahMasuk', 'tglMasuk', 'kodeBarang', 'namaBarang', 'supllayer', 'hargaBarang', 'satuan']
+            attributes: ['id','deskripsi','jumlahMasuk', 'tglMasuk', 'kodeBarang', 'namaBarang', 'supllayer', 'hargaBarang', 'satuan']
           })
           const val = get?.map((value)=> {
-            // console.log(value, 'll')
             return {
               ...value.dataValues,
               kodeBarang: JSON.parse(value?.kodeBarang),
@@ -27,8 +32,8 @@ module.exports = {
     },
     putUser: async (req, res)=>{
         const id = req.params.id
-        const {jumlahMasuk, tglMasuk, kodeBarang,namaBarang, supllayer, hargaBarang, satuan } = req.body
-        const put = await barangMasuk.update({ jumlahMasuk, tglMasuk, kodeBarang, namaBarang, supllayer, hargaBarang, satuan }, {
+        const {deskripsi, jumlahMasuk, tglMasuk, kodeBarang,namaBarang, supllayer, hargaBarang, satuan } = req.body
+        const put = await barangMasuk.update({  deskripsi,jumlahMasuk, tglMasuk, kodeBarang, namaBarang, supllayer, hargaBarang, satuan }, {
             where: {
               id,
             }

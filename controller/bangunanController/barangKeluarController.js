@@ -14,7 +14,13 @@ module.exports = {
         const get = await barangKeluar.findAll({
             attributes: ['id','tglKeluar', 'kodeBarang', 'namaBarang', 'jmlKeluar']
           })
-        res.json(get)
+          const val = get?.map((value)=> {
+            return {
+              ...value.dataValues,
+              kodeBarang: JSON.parse(value?.kodeBarang)
+            }
+          })
+        res.json(val);
     },
     putUser: async (req, res)=>{
         const id = req.params.id

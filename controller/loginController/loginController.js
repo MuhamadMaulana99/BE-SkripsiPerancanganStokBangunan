@@ -35,7 +35,13 @@ module.exports = {
     const get = await loginModel.findAll({
       attributes: ['id', 'username', 'password', 'userRoles']
     })
-    res.json(get)
+    const val = get?.map((value)=> {
+      return {
+        ...value.dataValues,
+        userRoles: JSON.parse(value?.userRoles)
+      }
+    })
+    res.json(val)
   },
   putUser: async (req, res) => {
     const id = req.params.id
@@ -56,25 +62,20 @@ module.exports = {
     })
     try {
       // console.log(res, 'ress')
-      if (!user) {
+      if (!del) {
         return res.status(401).json({
           message: 'username atau password salah',
           errorMesagge: `pasword ${password} salahh woii`
         })
       } else {
-        return res.status(200).json({ message: 'Login Berhasil' })
+        // return res.status(200).json({ message: 'Login Berhasil' })
+        return res.json(req.params)
       }
     } catch (error) {
       console.error(error);
-      if (error instanceof Sequelize.ValidationError) {
-        return res.status(400).json({ message: 'Validation error', errors: error.errors });
-      } else if (error instanceof Sequelize.UniqueConstraintError) {
-        return res.status(409).json({ message: 'Duplicate entry', errors: error.errors });
-      } else {
-        return res.status(500).json({ message: 'Internal Server Error' });
-      }
+      return res.status(500).json({ message: 'Internal Server Error',errorMesagge: error });
     }
-    return res.json(req.params)
+  
 
   }
 }

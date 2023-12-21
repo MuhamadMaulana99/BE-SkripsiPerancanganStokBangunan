@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING,
             default: null,
         },
-        stokBarang: {
+        jumlahMasuk: {
             type: DataTypes.STRING,
             default: null,
         },

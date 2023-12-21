@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes)=>{
         satuan: {
             type: DataTypes.STRING,
         },
+        deskripsi: {
+            type: DataTypes.STRING,
+        },
     })
     return suplayer;
 }
