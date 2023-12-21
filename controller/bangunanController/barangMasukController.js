@@ -42,12 +42,23 @@ module.exports = {
     },
     deleteUser: async (req, res)=>{
         const id = req.params.id
-        // console.log(req.params, 'idd')
-        const del = await barangMasuk.destroy({
-            where: {
-              id,
-            }
-          })
+        const findbarangMasuk = await barangMasuk.findOne({ where: { id } });
+        if(findbarangMasuk){
+          const findDataBarang = await dataBarangsModel.findOne({ where: { kodeBarang: findbarangMasuk.kodeBarang } });
+          if(findDataBarang){
+            await dataBarangsModel.update({ jumlahMasuk: parseInt(findDataBarang.jumlahMasuk ) - parseInt(findbarangMasuk.jumlahMasuk) }, {
+              where: {
+                kodeBarang: findbarangMasuk.kodeBarang
+              }
+            });
+            const del = await barangMasuk.destroy({
+              where: {
+                id,
+              }
+            })
+          }
+        }
+
         return res.json(req.params)
 
     }

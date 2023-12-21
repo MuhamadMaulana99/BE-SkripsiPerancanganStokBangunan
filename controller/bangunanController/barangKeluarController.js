@@ -1,12 +1,18 @@
-const {models: {barangKeluar,barangMasuk}} = require('../../model/index.js');
+const {models: {barangKeluar,dataBarangsModel}} = require('../../model/index.js');
 
 module.exports = {
     addUser: async (req, res)=>{
         const {tglKeluar, kodeBarang, namaBarang, jmlKeluar } = req.body
-        // console.log(req.body, 'req.body')
-        // if(!tglKeluar || || !kodeBarang){
-        //     return res.send(`tglKeluar harus ada`);
-        // }
+        const findBarangMasuk = await dataBarangsModel.findOne({ where: { kodeBarang} });
+        if(findBarangMasuk){
+          await dataBarangsModel.update({ jumlahMasuk: parseInt(findBarangMasuk.jumlahMasuk ) - parseInt(jmlKeluar) }, {
+            where: {
+              kodeBarang
+            }
+          });
+        }else{
+          const add = await dataBarangsModel.create({deskripsi, hargaBarang, kodeBarang,namaBarang, jumlahMasuk, satuan});
+        }
         const add = await barangKeluar.create({tglKeluar, kodeBarang,namaBarang, jmlKeluar})
         res.json(add)
     },

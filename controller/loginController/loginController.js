@@ -17,7 +17,7 @@ module.exports = {
           errorMesagge: `pasword ${password} salahh woii`
         })
       } else {
-        return res.status(200).json({ message: 'Login Berhasil', response: { id: user?.id, name: user?.username, userRoles: user?.userRoles } })
+        return res.status(200).json({ message: 'Login Berhasil', response:  { id: user?.id, name: user?.username, userRoles: user?.userRoles } })
       }
     } catch (error) {
       console.error(error);

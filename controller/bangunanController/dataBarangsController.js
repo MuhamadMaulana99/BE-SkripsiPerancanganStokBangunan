@@ -19,6 +19,7 @@ module.exports = {
           const val = get?.map((value)=> {
             return {
               ...value.dataValues,
+              kodeBarang: JSON.parse(value?.kodeBarang),
               satuan: JSON.parse(value?.satuan)
             }
           })
