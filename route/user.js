@@ -1,6 +1,6 @@
 const expess = require('express');
 
-const userRolesContoller = require('../controller/bangunanController/userRolesController.js');
+// const userRolesContoller = require('../controller/bangunanController/userRolesController.js');
 const suplayerContoller = require('../controller/bangunanController/suplayerController.js');
 const dataBarangsContoller = require('../controller/bangunanController/dataBarangsController.js');
 const barangKeluarContoller = require('../controller/bangunanController/barangKeluarController.js');
@@ -8,6 +8,7 @@ const barangMasukContoller = require('../controller/bangunanController/barangMas
 const loginController= require('../controller/loginController/loginController.js');
 
 const masterBarangContoller = require('../controller/masterController/masterBarangController.js');
+const masterSatuanContoller = require('../controller/masterController/masterSatuanController.js');
 const validation = require('../validation/user/validation.js');
 
 const routers = expess.Router();
@@ -18,10 +19,10 @@ routers.get('/allUser',loginController.getUser);
 routers.delete('/allUser/:id',loginController.deleteUser);
 routers.put('/allUser/:id',loginController.putUser);
 
-routers.get('/userRoles',userRolesContoller.getUser);
-routers.post('/userRoles',userRolesContoller.addUser);
-routers.delete('/userRoles/:id',userRolesContoller.deleteUser);
-routers.put('/userRoles/:id',userRolesContoller.putUser);
+// routers.get('/userRoles',userRolesContoller.getUser);
+// routers.post('/userRoles',userRolesContoller.addUser);
+// routers.delete('/userRoles/:id',userRolesContoller.deleteUser);
+// routers.put('/userRoles/:id',userRolesContoller.putUser);
 
 routers.get('/suplayer',suplayerContoller.getUser);
 routers.post('/suplayer',suplayerContoller.addUser);
@@ -47,5 +48,10 @@ routers.get('/mstBarangs',masterBarangContoller.getUser);
 routers.post('/mstBarangs',masterBarangContoller.addUser);
 routers.delete('/mstBarangs/:id',masterBarangContoller.deleteUser);
 routers.put('/mstBarangs/:id',masterBarangContoller.putUser);
+
+routers.get('/mstSatuan',masterSatuanContoller.getUser);
+routers.post('/mstSatuan',masterSatuanContoller.addUser);
+routers.delete('/mstSatuan/:id',masterSatuanContoller.deleteUser);
+routers.put('/mstSatuan/:id',masterSatuanContoller.putUser);
 
 module.exports = routers;

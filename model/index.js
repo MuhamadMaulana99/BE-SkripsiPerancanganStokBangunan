@@ -12,12 +12,13 @@ const suplayerModel = require('./bangunanModel/suplayerModels.js')(sequelize, Se
 const dataBarangsModel = require('./bangunanModel/dataBarangModels.js')(sequelize, Sequelize.DataTypes);
 const barangMasukModel = require('./bangunanModel/barangMasukModels.js')(sequelize, Sequelize.DataTypes);
 const barangKeluarModel = require('./bangunanModel/barangKeluarModels.js')(sequelize, Sequelize.DataTypes);
-const userRolesModel = require('./bangunanModel/userRolesModels.js')(sequelize, Sequelize.DataTypes);
+// const userRolesModel = require('./bangunanModel/userRolesModels.js')(sequelize, Sequelize.DataTypes);
 const masterBarang = require('./masterModel/masterBarangModels.js')(sequelize, Sequelize.DataTypes);
+const masterSatuan = require('./masterModel/mastersSatuanModels.js')(sequelize, Sequelize.DataTypes);
 const loginModel = require('./loginModel/loginModels.js')(sequelize, Sequelize.DataTypes);
 const db = {
   sequelize,
-  models: {suplayer: suplayerModel, dataBarangsModel: dataBarangsModel, barangMasuk: barangMasukModel, barangKeluar: barangKeluarModel, userRoles: userRolesModel, masterBarang: masterBarang, loginModel:loginModel },
+  models: { suplayer: suplayerModel, dataBarangsModel: dataBarangsModel, barangMasuk: barangMasukModel, barangKeluar: barangKeluarModel, masterBarang: masterBarang, masterSatuan: masterSatuan, loginModel: loginModel },
 
 }
 try {
