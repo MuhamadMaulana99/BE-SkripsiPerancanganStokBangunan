@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         tglKeluar: {
-            type: DataTypes.STRING(20),
+            type: DataTypes.STRING(50),
             default: null,
         },
         createdAt: {

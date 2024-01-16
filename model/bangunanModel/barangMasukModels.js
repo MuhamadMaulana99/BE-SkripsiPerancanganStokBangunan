@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes)=>{
             default: 'MAULANA',
         },
         kodeBarang: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(100),
             default: 'Cisauk',
         },
         namaBarang: {
@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         tglMasuk: {
-            type: DataTypes.STRING(20),
+            type: DataTypes.STRING(50),
             default: null,
         },
         supllayer: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(100),
         },
         hargaBarang: {
             type: DataTypes.STRING(50),
