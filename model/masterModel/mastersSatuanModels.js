@@ -4,7 +4,7 @@
 module.exports = (sequelize, DataTypes)=>{
     const masterSatuan = sequelize.define('tb_mst_Satuan',{
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             default: null,
         },
     })

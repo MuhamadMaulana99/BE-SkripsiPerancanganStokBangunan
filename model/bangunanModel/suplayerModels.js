@@ -4,15 +4,15 @@
 module.exports = (sequelize, DataTypes)=>{
     const suplayer = sequelize.define('tb_suplayer',{
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             default: 'MAULANA',
         },
         alamat: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             default: 'Cisauk',
         },
         noTlp: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             default: null,
         },
         createdAt: {

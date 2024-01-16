@@ -4,15 +4,15 @@
 module.exports = (sequelize, DataTypes)=>{
     const login = sequelize.define('tb_login',{
         username: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             default: null,
         },
         password: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(8),
             default: null,
         },
         userRoles: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(10),
             default: null,
         },
     })

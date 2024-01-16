@@ -4,19 +4,19 @@
 module.exports = (sequelize, DataTypes)=>{
     const barangKeluar = sequelize.define('tb_barang_keluar',{
         kodeBarang: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(10),
             default: null,
         },
         namaBarang: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             default: null,
         },
         jmlKeluar: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(10),
             default: null,
         },
         tglKeluar: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             default: null,
         },
         createdAt: {
