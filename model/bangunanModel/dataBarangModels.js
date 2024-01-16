@@ -5,27 +5,27 @@
 module.exports = (sequelize, DataTypes)=>{
     const suplayer = sequelize.define('tb_data_barangs',{
         deskripsi: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(100),
             default: null,
         },
         hargaBarang: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(100),
             default: null,
         },
         kodeBarang: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(100),
             default: null,
         },
         namaBarang: {
-            type: DataTypes.STRING(20),
+            type: DataTypes.STRING(100),
             default: null,
         },
         jumlahMasuk: {
-            type: DataTypes.STRING(10),
+            type: DataTypes.STRING(100),
             default: null,
         },
         satuan: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(100),
             default: null,
         },
         // createdAt: {

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         jmlKeluar: {
-            type: DataTypes.STRING(10),
+            type: DataTypes.STRING(50),
             default: null,
         },
         tglKeluar: {
