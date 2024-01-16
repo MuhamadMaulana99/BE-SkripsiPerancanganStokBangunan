@@ -8,11 +8,11 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         password: {
-            type: DataTypes.STRING(8),
+            type: DataTypes.STRING(20),
             default: null,
         },
         userRoles: {
-            type: DataTypes.STRING(10),
+            type: DataTypes.STRING(50),
             default: null,
         },
     })

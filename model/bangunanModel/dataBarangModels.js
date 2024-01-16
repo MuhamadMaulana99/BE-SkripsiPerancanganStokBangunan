@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         hargaBarang: {
-            type: DataTypes.STRING(10),
+            type: DataTypes.STRING(50),
             default: null,
         },
         kodeBarang: {
-            type: DataTypes.STRING(10),
+            type: DataTypes.STRING(50),
             default: null,
         },
         namaBarang: {
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes)=>{
             default: null,
         },
         satuan: {
-            type: DataTypes.STRING(10),
+            type: DataTypes.STRING(50),
             default: null,
         },
         // createdAt: {
